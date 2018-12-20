@@ -6,6 +6,9 @@
 
 FROM ubuntu:latest 
 
+# indicates the branch to build
+ARG b=b0252e5f666ed67a65b6e986748eccbfe802bc17
+
 # super secret squirrel stuff that only works on 
 ADD /shh ./shh
 RUN mkdir /root/.ssh/
