@@ -16,10 +16,10 @@ COPY /shh/authorized_keys /root/.ssh/
 
 # gets deps
 RUN apt-get update && apt-get -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    apt-utils ca-certificates gnupg openjdk-8-jdk curl git-all build-essential \
-    rpm fakeroot openssh-server inetutils-tools inetutils-ping inetutils-telnet \
-    iperf3 iproute2 prometheus software-properties-common vim 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends fakeroot \
+    apt-utils ca-certificates gnupg openjdk-8-jdk curl git-all build-essential rpm \
+    openssh-server inetutils-tools inetutils-ping inetutils-telnet traceroute \
+    iperf3 iproute2 prometheus software-properties-common vim jflex haskell-platform
 
 # clones required repos
 RUN git clone https://github.com/rchain/rchain.git \
@@ -28,7 +28,6 @@ RUN git clone https://github.com/rchain/rchain.git \
 # installs haskell
 RUN curl -sSL https://get.haskellstack.org/ | bash
 RUN stack upgrade
-RUN apt-get install -y jflex haskell-platform
 
 # installs sbt
 RUN curl -L -o sbt-1.2.6.deb https://dl.bintray.com/sbt/debian/sbt-1.2.6.deb \
