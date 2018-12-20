@@ -53,6 +53,7 @@ RUN sbt clean bnfc:clean bnfc:generate rholang/bnfc:generate rholang/compile rho
     node/debian:packageBin node/universal:packageZipTarball
 
 # adds bin to path
+# TODO: further testing to see how this will need to change based on branch and version
 ENV PATH="/rchain/node/target/rnode-0.8.1/usr/share/rnode/bin/:${PATH}"
 
 # sets entrypoint as bash
