@@ -47,7 +47,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 
 # builds rchain
 WORKDIR /rchain
-RUN git checkout fbd2fc9f09efd6f1025e67a5d84a2b5f414d62a3
+RUN git checkout ${b}
 RUN sbt clean bnfc:clean bnfc:generate rholang/bnfc:generate rholang/compile rholangCLI/assembly \
     comm/compile clean rholang/bnfc:generate casper/test:compile node/rpm:packageBin \
     node/debian:packageBin node/universal:packageZipTarball
